@@ -1,0 +1,40 @@
+﻿<!-- zhouxiang www.zhou-xiang.com -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>uploadPreview演示</title>
+    <script src="jquery-1.8.2.js"></script>
+    <script src="uploadPreview.js"></script>
+
+</head>
+<body>
+<input type="file" id="up_img"/>
+<div id="imgdiv" ><img id="imgShow"/></div>
+<script>
+    $("#up_img").uploadPreview({ Img: "ImgPr", Width: 120, Height: 120, ImgType: ["gif", "jpeg", "jpg", "bmp", "png"], Callback: callA});
+
+  function callA(filePathArr, srcStr, _self, isSafari){
+      var imgSrc = srcStr ? srcStr : filePathArr[0];
+
+
+ $("#imgShow").attr("src", imgSrc);
+    debugger
+     var img=new Image();
+     if (img.complete) {
+
+         alert('complete!');
+     }
+     img.onload = function () {
+        debugger
+         alert(this.width + "$$$" + this.height)
+      
+      
+      }
+      img.src=imgSrc;
+
+
+  }
+</script>
+</body>
+</html>

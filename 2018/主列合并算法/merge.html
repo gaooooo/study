@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+        table
+        {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-left: 1px solid #888;
+            border-top: 1px solid #888;
+            background: #efefef;
+        }
+    </style>
+    <p>
+        该实例使用 addEventListener() 方法来向按钮添加点击事件。</p>
+    <button id="myBtn">
+        点我</button>
+    <p id="demo">
+    </p>
+    <div id='aaa'>
+        <!--  <table  border="1">
+   
+     <tr>
+        <td rowspan="3">a2</td>
+        <td rowspan="3">b2</td>
+        <td>4</td>
+     </tr>
+
+     <tr>
+       <td>4</td>
+     </tr>
+     <tr>
+        <td>5</td>
+     </tr>
+
+     <tr>
+        <td rowspan="2">a</td>
+        <td   rowspan="2">b4</td>
+        <td>3</td>
+     </tr>
+
+     <tr>
+       
+        <td>3</td>
+     </tr>
+    
+   </table>
+-->
+    </div>
+    <script>
+        (function () {
+
+            ///////////////
+
+            var arr = [
+{ a: "a2", b: "b2", c: 4 },
+{ a: "a2", b: "b2", c: 4 },
+{ a: "a2", b: "b2", c: 5 },
+{ a: "a", b: "b4", c: 3 },
+{ a: "a", b: "b4", c: 3 },
+{ a: "a2", b: "b2", c: 6}];
+
+            var columns = ['a', 'b'];
+            var dataArray = [];
+            var dic = {};
+            var dic2 = {};
+            for (var i = 0; i < arr.length; i++) {
+
+                var a = arr[i];
+                var tempValues = [];
+                for (var j = 0; j < columns.length; j++) {
+                    var c = columns[j];
+                    var value = a[c] || "";
+                    tempValues.push(value);
+                    dataArray[i] = { key: (tempValues.join('-')), value: c, trueValue: value };
+                    if (dic[dataArray[i].key] && dic[dataArray[i].key].lastIndex == (i - 1)) {
+                        dic[dataArray[i].key].rowspan++;
+                        dic[dataArray[i].key].lastIndex = i;
+                    } else {
+                        var d = { rowIndex: i, column: c, rowspan: 1, lastIndex: i };
+                        dic[dataArray[i].key] = d;
+                        dic2[i + "-" + c] = d;
+                    }
+                }
+            }
+
+            //拼table
+            var _str = "<table  border='1'>";
+            var _fields = ['a', 'b', 'c'];
+            debugger
+            for (var i = 0; i < arr.length; i++) {
+                _str += "<tr>";
+                for (var j = 0; j < _fields.length; j++) {
+                    var _key = i + "-" + _fields[j];
+                    //添加主列
+                    if (dic2[_key] && dic2[_key].rowspan) {
+                        _str += "<td  rowspan='" + dic2[_key].rowspan + "'>" + arr[i][_fields[j]] + "</td>";
+                    }
+                    //判断是否为主列字段
+                    else if (columns.indexOf(_fields[j]) > -1) {
+                        continue;
+                    } 
+                    else {
+                        _str += "<td>" + arr[i][_fields[j]] + "</td>";
+                    }
+
+                }
+                _str += "</tr>";
+            }
+
+            _str += "</table>";
+
+            document.write(JSON.stringify(dic2))
+
+            document.write(_str)
+
+            ////////////////
+        })();
+ 
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+
+	<script>
+
+      var Person = function(){};
+
+      Person.prototype={
+
+          name:'hello'
+
+      };
+
+      var gaoxin = new Person();
+
+      console.log(gaoxin.__proto__ === Person.prototype)
+      // console.log(gaoxin instanceof  Person);
+
+Person.prototype={
+
+	name:'hello'
+};
+
+
+
+console.log('type:'+ typeof gaoxin.__proto__  )
+console.log('type:'+ typeof  Person.prototype)
+
+//原型改变地址，不影响原引用，所以最终成为两个引用 
+ console.log('update===:'+gaoxin.__proto__ === Person.prototype)
+ 
+       //console.log('update:'+gaoxin instanceof  Person);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

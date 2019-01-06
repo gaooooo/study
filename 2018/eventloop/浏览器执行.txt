@@ -1,0 +1,95 @@
+
+task：script中代码、setTimeout、setInterval、I/O、UI render。
+microtask: promise、Object.observe、MutationObserver。
+
+
+1.执行完主执行线程中的任务。
+
+2.取出Microtask Queue中任务执行直到清空。
+
+3.取出Macrotask Queue中一个任务执行。
+
+4.取出Microtask Queue中任务执行直到清空。
+
+重复3和4。
+
+
+
+即为同步完成，一个宏任务，所有微任务，一个宏任务，所有微任务......
+
+
+
+
+
+浏览器输出：
+setTimeout - 1 //1为单个task
+
+1s over
+
+setTimeout - 1 - then
+
+setTimeout - 1 - then - then 
+
+setTimeout - 2 //2为单个task
+
+1s over
+
+setTimeout - 2 - then
+
+setTimeout - 2 - then - then
+
+setTimeout - 1 - 1
+
+1s over
+
+setTimeout - 2 - 1
+
+1s over
+
+
+
+自己解析：主线程属于宏任务，任务执行时代码按宏任务（代码段），微任务（代码段）加入事件循环中
+主线程代码一次执行完成后，执行所有微任务代码（promise），然后再执行一次宏任务代码(settimout)，
+这样循环下去
+
+node输出
+setTimeout - 1 
+
+1s over
+
+setTimeout - 2 //1、2为单阶段task
+
+1s over
+
+setTimeout - 1 - then
+
+setTimeout - 2 - then
+
+setTimeout - 1 - then - then
+
+setTimeout - 2 - then - then
+
+setTimeout - 1 - 1
+1s over
+
+setTimeout - 2 - 1
+
+1s over
+
+
+自己解析：node输出中忽略了new promise为微任务加入当前任务队列中不会进入下一个循环
+宏任务中的注册会进入下一轮循环
+*process.nextTick 内执行 process.nextTick 仍然将 tick 函数注册到当前 microtask 的尾部
+
+
+清空当前循环内的Timers Queue，清空NextTick Queue，清空Microtask Queue。
+
+清空当前循环内的I/O Queue，清空NextTick Queue，清空Microtask Queue。
+
+清空当前循环内的Check Queu，清空NextTick Queue，清空Microtask Queue。
+
+清空当前循环内的Close Queu，清空NextTick Queue，清空Microtask Queue。
+
+进入下轮循环。
+可以看出，nextTick优先级比promise等microtask高。setTimeout和setInterval优先级比setImmediate高。
+

@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+
+   //(function(){
+
+
+  // alert('123')
+   //})();
+   
+
+  
+
+
+   (function  tt(a){
+         
+       //alert('123');
+       //eval("alert('2')");
+
+ //立即执行作用域为window
+ //eval作用域为当前作用域
+  // new Function 作用域为window,调用不到当前上下文的变量的
+   var siyou='2123'
+
+    //this.siyou= 'haha';
+    eval("alert(siyou)");
+ 
+   
+    var foo  = new Function("alert(this.siyou)");//如果是siyou 直接报错
+     //foo.call(this);  
+    foo();
+      
+
+   })(1)
+
+
+
+   //！取代()的意义  !可以是+-！任意符号都可以
+   //  !function(){
+
+      // alert('123');
+
+    // }()
+
+
+ // (function(){
+  // alert('123')
+
+  //}).call()
+
+
+ // setTimeout(function(){    
+     // alert('123')
+   //},0);    
+
+
+
+
+
+
+
+    </script>
+
+
+
+  
+</head>
+<body>
+
+</body>
+</html>

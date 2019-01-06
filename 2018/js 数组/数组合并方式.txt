@@ -1,0 +1,10 @@
+result=[];
+context=[1,2,3]; 
+
+1. Array.prototype.push.apply(result,context);
+
+·µ»Øresult
+
+
+2. result= result.contact(context);
+

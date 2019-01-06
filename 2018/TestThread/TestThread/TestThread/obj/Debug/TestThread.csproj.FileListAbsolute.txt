@@ -1,0 +1,17 @@
+D:\Projects\TestThread\TestThread\bin\Debug\TestThread.exe.config
+D:\Projects\TestThread\TestThread\bin\Debug\TestThread.exe
+D:\Projects\TestThread\TestThread\bin\Debug\TestThread.pdb
+D:\Projects\TestThread\TestThread\obj\Debug\TestThread.Form1.resources
+D:\Projects\TestThread\TestThread\obj\Debug\TestThread.Properties.Resources.resources
+D:\Projects\TestThread\TestThread\obj\Debug\TestThread.csproj.GenerateResource.Cache
+D:\Projects\TestThread\TestThread\obj\Debug\TestThread.exe
+D:\Projects\TestThread\TestThread\obj\Debug\TestThread.pdb
+D:\Exercise\TestThread\TestThread\TestThread\bin\Debug\TestThread.exe.config
+D:\Exercise\TestThread\TestThread\TestThread\obj\Debug\TestThread.exe
+D:\Exercise\TestThread\TestThread\TestThread\obj\Debug\TestThread.pdb
+D:\Exercise\TestThread\TestThread\TestThread\bin\Debug\TestThread.exe
+D:\Exercise\TestThread\TestThread\TestThread\bin\Debug\TestThread.pdb
+D:\Exercise\TestThread\TestThread\TestThread\obj\Debug\TestThread.csprojResolveAssemblyReference.cache
+D:\Exercise\TestThread\TestThread\TestThread\obj\Debug\TestThread.Form1.resources
+D:\Exercise\TestThread\TestThread\TestThread\obj\Debug\TestThread.Properties.Resources.resources
+D:\Exercise\TestThread\TestThread\TestThread\obj\Debug\TestThread.csproj.GenerateResource.Cache

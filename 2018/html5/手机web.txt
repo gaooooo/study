@@ -1,0 +1,122 @@
+1.网页宽度自动调整
+
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+
+viewport是网页默认的宽度和高度，
+网页宽度默认等于屏幕宽度（device-width），
+原始缩放比例(initial-scale=1)为1.0，即网页初始大小占屏幕面积的100%
+
+
+2.不使用绝对宽度
+
+width:xx% 
+width:auto
+
+3.相对大小的字体
+
+字体大小是页面默认大小的100%，即16像素
+body { 
+   font:normal 100% Helvetica,Arial,sans-serif
+
+}
+
+h1 {
+   font-size:1.5em;     (16*1.5=24像素)
+}
+small{
+  font-size:0.875em;    （16*0.875= 14像素）
+}
+
+
+4 流式布局
+流动式布局  各个区块的位置都是浮动的，不是固定不变的
+.main {
+   float: right ;
+    width:70%
+}
+
+.leftBar {
+   float:left;
+   width:25%;
+}
+
+5自适应网页设计，CSS3引入的Media Query模块
+
+<link rel="stylesheet" type="text/css"
+ media="screen and (max-device-width:400px)"
+href="tinyScreen.css"/>
+
+如果屏幕宽度小于400像素(max-device-width:400px),
+就加载tinyScreen.css
+
+
+<link rel="stylesheet" type="text/css"
+media="screen and (min-width:400px) and (max-device-width:600px)"
+href="smallScreen.css"/>
+
+如果屏幕宽度在400像素到600像素之间，则加载smallScreen.css文件
+
+
+【除了用html标签加载CSS文件，还可以在现有CSS文件中加载】
+@import url("tinyScreen.css") screen and (max-device-width:400px);
+
+
+6, CSS的@media规则
+同一个CSS文件中，也可以根据不同的屏幕分辨率，选择应用不同的CSS规则
+
+@media screen and (max-device-width:400px) {
+
+   .column {
+     float:none;
+     width:auto;
+  }
+  #sidebar {
+     display:none;
+ }
+
+}
+如果屏幕宽度小于400像素，则column块取消浮动（float:none）、宽度自动调节(width:auto)，
+sidebar块不显示(display:none)
+
+
+7图片的自适应
+img {max-width:100%}
+
+这行代码对于大多数嵌入网页的视频也有效，所以可以写成：
+img,object { max-width:100%}
+
+老版本的IE不支持max-width,所以只好写成
+img{ width:100%}
+
+此外，window平台缩放图片时，可能出现图像失真现象，这时，可以尝试使用IE的专有命令：
+img {-ms-interpolation-mode:bicubic;}
+或者，Ethan Marcotte的imgSizer.js
+
+addLoadEvent(function(){
+
+    var imgs= document.getElementById("content").getElementsByTagName("img");
+    imgSizer.collate(imgs);
+
+});
+不过，有条件的话，最好还是根据不同大小的屏幕，加载不同分辨率的图片。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+
+
+	<script>
+	 
+  
+
+       var _obj=  function (){
+          this.el=null;
+
+       };
+       _obj.prototype = {
+
+getTag:function(name){
+	this.el=  document.getElementsByTagName(name);
+   return this ;
+
+},
+
+get:function(num){
+    
+  return (num == null|| num<0|| typeof num == "undefined" )?this.slice(0):this.el[num];
+
+},
+
+slice:function(num){
+   return Array.prototype.slice.call(this.el,num);
+}
+
+
+
+       };
+
+ 
+   var gaoxin = new _obj();
+
+   console.log(gaoxin.getTag('div').get()[0].innerHTML)  ;
+console.log(gaoxin.getTag('div').get(1).innerHTML)  ;
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">    
+    <html xmlns="http://www.w3.org/1999/xhtml">    
+    <head>    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
+    <title>Firefox3,IE6,IE7,IE8�ϴ�ͼƬԤ��</title>    
+    <style type="text/css">    
+    #preview_wrapper{     
+        display:inline-block;     
+        width:300px;     
+        height:300px;     
+        background-color:#CCC;     
+    }     
+    #preview_fake{ /* �ö����û���IE����ʾԤ��ͼƬ */     
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale);     
+    }     
+    #preview_size_fake{ /* �ö���ֻ������IE�»��ͼƬ��ԭʼ�ߴ磬��������; */     
+        filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);       
+        visibility:hidden;     
+    }     
+    #preview{ /* �ö����û���FF����ʾԤ��ͼƬ */     
+        width:300px;     
+        height:300px;     
+    }     
+    </style>    
+        
+    <script type="text/javascript">    
+    function onUploadImgChange(sender){     
+        if( !sender.value.match( /.jpg|.gif|.png|.bmp/i ) ){     
+            alert('ͼƬ��ʽ��Ч��');     
+            return false;     
+        }     
+             debugger
+        var objPreview = document.getElementById( 'preview' );     
+        var objPreviewFake = document.getElementById( 'preview_fake' );     
+        var objPreviewSizeFake = document.getElementById( 'preview_size_fake' );     
+             debugger
+        if( sender.files &&  sender.files[0] ){     
+            objPreview.style.display = 'block';     
+            objPreview.style.width = 'auto';     
+            objPreview.style.height = 'auto';     
+                 
+            // Firefox ��ȫ���������޷�ֱ��ͨ�� input[file].value ��ȡ�������ļ�·��     
+            objPreview.src = sender.files[0].getAsDataURL();         
+        }else if( objPreviewFake.filters ){      
+            // IE7,IE8 �����ñ���ͼƬ��ַΪ img.src ʱ����Ī������ĺ��     
+            //����ͬ������ʱ����ʾ����ʱ����ʾ�������ֻ�����˾������     
+                 
+            // IE7, IE8��ȫ���������޷�ֱ��ͨ�� input[file].value ��ȡ�������ļ�·��     
+            sender.select();     
+            var imgSrc = document.selection.createRange().text;     
+                 
+            objPreviewFake.filters.item(     
+                'DXImageTransform.Microsoft.AlphaImageLoader').src = imgSrc;     
+            objPreviewSizeFake.filters.item(     
+                'DXImageTransform.Microsoft.AlphaImageLoader').src = imgSrc;     
+                 
+           
+              alert(  objPreviewSizeFake.offsetWidth);
+			  alert( objPreviewSizeFake.offsetHeight) ;     
+            objPreview.style.display = 'none';     
+        }     
+    }     
+        
+   
+    </script>    
+        
+    </head>    
+        
+    <body>    
+        <div id="preview_wrapper">    
+            <div id="preview_fake">    
+                <img id="preview" onload="onPreviewLoad(this)"/>    
+            </div>    
+        </div>    
+        <br/>    
+        <input id="upload_img" type="file" onchange="onUploadImgChange(this)"/>    
+        <br/>    
+        <img id="preview_size_fake"/>    
+    </body>    
+    </html>    
+
+
+

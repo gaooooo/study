@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="index.js"></script>
+    <style type="text/css">
+     body{ width: 100%; height: 100%}
+        #zhongjiang
+        {
+            background-color: White;
+            width: 230px;
+            height: 440px;
+            position: absolute;
+            top: 20%;
+            left: 4%;
+            text-align: center;
+            overflow: scroll;
+        }
+        #zhongjiang span
+        {
+            clear: both;
+            font-size: 30px;
+            font-weight: bold;
+            color: Red;
+        }
+        #telephone
+        {
+            width: 800px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            margin-top: 30px;
+            margin-left: -300px;
+            background-color: White;
+
+        }
+        #telephone span
+        {
+            clear: both;
+            font-size: 140px;
+            font-weight: bold;
+            color: Red;
+            display: block;
+          
+        }
+        .transparent_class
+        {
+            filter: alpha(opacity=50);
+            -moz-opacity: 0.5;
+            -khtml-opacity: 0.5;
+            opacity: 0.5;
+        }
+        
+        .button
+        {
+            width: 90px;
+            height: 40px;
+            background-color: White;
+            color: Red;
+            font-weight: bold;
+            text-align: center;
+            font-size: 24px;
+            
+        }
+        
+        #divstart
+        {
+            
+            position: absolute;
+            cursor: pointer;
+            top: 80%;
+            left: 80%;
+             
+        }
+        
+        #divend
+        {
+            position: absolute;
+            cursor: pointer;
+            top: 80%;
+            left: 87%;
+        }
+        body{background:url(bg.jpg) no-repeat 0 0 fixed ; background-size: 100% ;} 
+    </style>
+</head>
+<body>
+    <div id="zhongjiang" class="transparent_class">
+    </div>
+    <div id="telephone" class="transparent_class">
+        <span id="txtTel"></span>
+    </div>
+    <div id="divstart" class="button transparent_class" onclick="FuncStart()">
+        <span style="vertical-align: middle;">开始</span></div>
+    <div id="divend" class="button transparent_class" onclick="FuncStop()">
+        <span >结束</span></div>
+</body>
+</html>

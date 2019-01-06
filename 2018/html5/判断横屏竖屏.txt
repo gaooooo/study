@@ -1,0 +1,23 @@
+
+
+@media all and (orientation:landscape) {
+
+  </p><p> /*这里是匹配横屏的状态，横屏的css代码*/
+  body {  }
+
+}
+
+@media all and (orientation:portrait) {
+ </p><p> /*这里是匹配竖屏的状态，竖屏时的css代码*/
+  body {  
+     backgroud-color:#000;
+  }
+
+}
+
+
+
+
+js脚本判断：
+
+onorientationchange  是window的一个事件，可以通过监听事件匹配屏幕横竖屏

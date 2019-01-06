@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            background-color: red;
+            width: 400px;
+            height: 400px;
+
+        }
+
+        .box1{
+            background-color: grey;
+            width: 200px;
+            height: 200px;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+  <div id='box'  class='box' onclick='alert("heiheihei")'>
+
+      <div id='box1' class='box1' onclick='alert("box1")'></div>
+
+  </div>
+</body>
+</html>
+<script src="common.js"></script>
+<script>
+   var box= document.getElementById('box');
+   box.onclick= function(){
+       alert('override');
+
+   }
+   box.addEventListener('click',function(){
+
+      alert('addEventListener');
+   },false);
+   box.addEventListener('click',function(){
+
+       alert('addEventListener2');
+   },false);
+
+
+</script>

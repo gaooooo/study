@@ -1,0 +1,24 @@
+引用类型与值类型的区别
+
+
+赋值动作都会开辟新地址，区别在于，对于引用类型，地址里存的是个指针，而值类型存的是个值
+
+string c;
+string A=C;
+string B=C;
+A B都等于C，但是A有自己的地址，存的是个值C，B也分配自己的地址，存的是个值C ， 如果C改变，A B 不变
+
+string c;
+object a= c;
+object b=c;
+a b 分别有自己的地址，但指向C的引用，如果C改变，A B 同会改变 。
+
+
+ALERT(A);
+
+string类型 会开辟新的地址
+两个地址指向同一个指针，
+
+基础类型不会开地址
+
+http://www.cnblogs.com/tonney/archive/2011/04/28/2032205.html

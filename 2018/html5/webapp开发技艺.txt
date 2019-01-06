@@ -1,0 +1,94 @@
+﻿1.webkit内核中的一些私有的meta标签
+
+<meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="telephone=no" name="format-detection" />
+
+第一个meta标签表示：
+强制让文档的宽度与设备的宽度保持1：1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览；
+第二个meta标签
+是iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览
+第三个meta标签
+也是iphone设备中的私有标签，它指定的iphone中safari顶端的状态条的样式
+第四个meta标签表示
+告诉设备忽略将页面中的数字识别为电话号码
+
+
+
+
+2.HTML5标签的使用
+section nav
+
+3.放弃CSS float属性
+使用display:block
+
+
+4.利用CSS3边框背景属性
+按钮圆角 
+内发光还有高光 -webkit-border-image
+
+
+5.块级化A标签
+因为在触控手机上，尽可能的保证可点击区域较大
+
+6自适应布局模式
+7学会使用webkit-box
+上一切，我们说过自适应布局模式，如何做到？display:webkit-box,盒子模型灵活控制
+
+8.如果去除Android平台中对邮箱地址的识别(安卓自动识别邮件地址)
+<meta content="email=no" name="format-detection" />
+
+9.如何去除IOS 和Andriod中的输入URL的控件条
+setTimeout(scrollTo,0,0,0);
+
+10如何禁止用户旋转设备
+抱歉，安卓阻止不了
+
+11.如何检测用户是通过主屏启动你的APP的
+navigator.standalone 为true
+
+12如何关闭IOS中的键盘自动大写
+autocapitalize="off"
+
+
+13 IOS 中彻底禁止用户在新窗口打开页面
+-webkit-touch-callout :none 只对IOS有效
+
+
+14IOS 中禁止用户保存与复制图片
+为一个image标签设置 -webkit-touch-callout:none
+
+15IOS 中如何禁止用户选中文字
+文件标签的 -webkit-user-select:none
+
+16IOS 中如何获取滚动条的值
+window.scrollY
+window.scrollX
+
+17如何解决盒子边框溢出
+-webkit-box-sizing:border-box 
+用来指定该盒子的大小包括边框的宽度
+
+18如果解决安卓2.0以下平台的圆角问题
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

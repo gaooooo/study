@@ -1,0 +1,23 @@
+{
+  "entry": "src/index.js",
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr",
+        "transform-runtime"
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-runtime"
+      ]
+    }
+  },
+  "proxy": {
+  "/api": {
+    "target": "http://10.238.18.59:8089/Webservices/ExhibitionService.asmx",
+    "changeOrigin": true,
+    "pathRewrite": { "^/api" : "" }
+  }
+}
+}

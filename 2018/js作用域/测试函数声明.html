@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+
+<script>
+
+ // 变量定义先提升，函数变量后提升 
+ // 所以函数变量提升到变量之前，函数先执行
+ // 同名函数，也会被后面的覆盖 
+ // 相同的预编译，只预编译一次
+ 
+  console.log('first:'+ a);
+  function a (){
+     var b=ccc;
+     console.log(b);
+  }
+  console.log('second:'+ a);
+  
+  var a =1;
+  
+ console.log('third:'+ a);
+
+</script>

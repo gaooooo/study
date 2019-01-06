@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>无间断滚动-兼容IE7 IE6 FireFox Opera</title>
+    <style type="text/css">
+        #demo {
+            float: left;
+            width: 300px;
+            height: 150px;
+            display: inline;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="demo">
+        <div id="demo1">
+
+            <p>1源码爱好者</p>
+            <p>2哈哈哈，欢迎您</p>
+            <p>3我是谁</p>
+            <p>4你你你你你你</p>
+            <p>5啦啦啦啦</p>
+            <p>6再见</p>
+        </div>
+        <div id="demo2"></div>
+    </div>
+    <script type="text/javascript">
+        var speed = 40;
+
+        var ZJJDemo = document.getElementById('demo');
+        var ZJJDemo1 = document.getElementById('demo1');
+        var ZJJDemo2 = document.getElementById('demo2');
+        ZJJDemo2.innerHTML = ZJJDemo1.innerHTML;
+        function Marquee1() {
+            if (ZJJDemo2.offsetHeight - ZJJDemo.scrollTop <= 0) {
+                
+                ZJJDemo.scrollTop -= ZJJDemo1.offsetHeight;
+            }
+            else {
+                ZJJDemo.scrollTop++;
+            }
+        }
+        var MyMar1 = setInterval(Marquee1, speed);
+        ZJJDemo.onmouseover = function () { clearInterval(MyMar1); }
+        ZJJDemo.onmouseout = function () { MyMar1 = setInterval(Marquee1, speed); }
+    </script>
+</body>
+</html>

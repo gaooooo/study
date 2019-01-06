@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+
+<style>
+ 
+ .monster{
+      border:1px solid green;
+      width: 50%;
+      height: 50%;
+    position:fixed;
+top:0px;
+left:0px;
+right:0px;
+bottom:0px;
+margin:auto;
+      
+ }
+
+
+</style>
+
+</head>
+
+
+<body>
+ 
+<div class="monster">
+	we are monster
+</div> 
+
+
+
+</body>
+</html>
+
+
+<script >
+
+ 
+var a=1;
+a.b =  (function(){
+     function show(){};
+
+ 	show.prototype.Say= function(){alert(1);}
+ 
+    return show;
+
+ })();
+
+
+var c= new a.b();
+c.Say();
+
+//a.b();
+
+</script>

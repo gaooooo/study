@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+
+<script type="text/javascript">
+	
+
+
+ function Product(haha){
+ 	this.haha=haha;
+ 	//console.log(this.name);
+ }
+
+Product.prototype = {
+    name:'gaoxin',
+   
+	info:{
+		 hello:'hello',
+         world:'world'
+	}
+}
+Product.prototype.constructor = Product;
+
+ /*只有复杂类型才会共享*/
+
+Product.prototype.name="gaoxin";
+Product.prototype.info= { hello:"hello", world:"world"};
+
+
+var p1= new Product('haha');
+//这是访问原型中的某个属性
+p1.info.hello='hello1';
+//与上面不同，新创建了一个对象
+//p1.info= {hello:'jack_a'};  
+p1.name='gaoxin1';
+
+
+var p2= new Product();
+// p2.info.hello='hello2';
+// p2.info= {hello:'jack_b'};
+// p2.name='gaoxin2';
+
+ //console.log(p1 instanceof Product);
+ // debugger
+ 
+//  console.log(p1.name);
+ console.log(p2.name);
+ console.log(p2.info.hello);
+ //console.log(p2.__proto__.name);
+
+ // console.log(Product.prototype.constructor === Object);
+	console.log(Product.prototype.constructor === Product);
+	console.log(Product.prototype.constructor);
+
+
+
+</script>

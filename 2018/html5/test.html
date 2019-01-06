@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        * {margin: 0;padding: 0;}
+        .parent {
+            margin: 50px auto;
+            width: 1000px;
+            height: 200px;
+            background-color: grey;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            top: 0;
+            left: 0;
+
+            -webkit-animation-name:mybox;
+            -webkit-animation-duration:10s;
+            -webkit-animation-timing-function:linear;
+            -webkit-animation-iteration-count: infinite;
+
+        }
+
+        @-webkit-keyframes mybox {
+            0%{
+                left: 0;
+
+            }
+
+            100%{
+
+             left:1000px;
+            }
+         }
+
+
+        .father {
+
+            margin: 150px auto;
+            width: 1000px;
+            height: 200px;
+            background-color: grey;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .child {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            top: 0;
+            left: 300px;
+
+            -webkit-animation-name:myfamily;
+            -webkit-animation-duration:2s;
+            -webkit-animation-timing-function:linear;
+            -webkit-animation-iteration-count: infinite;
+
+        }
+
+        @-webkit-keyframes myfamily {
+            0%{
+                left: 300px;
+
+            }
+            50%{
+                left: 500px;
+
+            }
+            100%{
+
+                left:300px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+<div class="box" id="box"></div>
+
+</div>
+
+
+<div class="father">
+     <div class="child"></div>
+
+</div>
+</body>
+</html>
+<script>
+//    var box= document.getElementById("box");
+//    box.onclick= function(){
+//
+//        box.style.left= box.parentNode.offsetWidth+"px";
+//
+//
+//
+//    }
+
+
+
+</script>

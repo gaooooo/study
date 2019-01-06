@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script  src="jquery-1.10.2.min.js" type="text/javascript"></script>
+     <script  type="text/javascript">
+
+         function test() {
+             $.ajax({
+                 url: "http://localhost:35536/JsonService.asmx",
+                 type: "POST",
+                 async: true,
+                 data: { order_no: "B15082500174044", total_fee: "0.00", version: "1", equType: "1", equName: "1" },
+                 success: function (result) {
+                     var result = JSON.parse(result);
+                     $("#abc").html(result);
+
+                 },
+                 error: function (ex) {
+                     alert(ex);
+                 }
+             });
+         }
+         
+     </script>
+</head>
+<body>
+   <input type="button" value="µãÎÒ" onclick="test();" />
+   <div id="abc"></div>
+</body>
+</html>
